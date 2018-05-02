@@ -1,0 +1,9 @@
+#!/usr/bin/env rubyrequire "bundler/setup"
+require "this_day_in_history"
+ require "pry"
+Pry.start
+
+require "irb"
+IRB.start(__FILE__)
+
+this_day_in_histroy::Cli.new.call
