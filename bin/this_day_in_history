@@ -1,9 +1,6 @@
-#!/usr/bin/env rubyrequire "bundler/setup"
-require "this_day_in_history"
- require "pry"
-Pry.start
+#!/usr/bin/env ruby
 
-require "irb"
-IRB.start(__FILE__)
+require_relative '../lib/this_day_in_history'
 
-this_day_in_histroy::Cli.new.call
+ThisDayInHistory::Cli.new.call
+
