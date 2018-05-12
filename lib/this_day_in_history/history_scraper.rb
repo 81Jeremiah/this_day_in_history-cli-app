@@ -11,12 +11,12 @@ class History_Scraper
 		doc = Nokogiri::HTML(open('https://www.history.com/this-day-in-history'))
 		
 		today = []
-		doc.css("div.day-article").each do |event|
-			event_title = event.css("title").text
-
+		doc.css("div.day-articles").each do |event|
+			event_title = event.css("div.title").text
+        today << {title: event_title}
 		end
 		binding.pry
-		event_title
+		today
 	end
 
 end
