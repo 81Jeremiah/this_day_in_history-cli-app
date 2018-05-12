@@ -1,32 +1,35 @@
 require 'open-uri'
 require 'pry'
 require 'nokogiri'
+require_relative './event.rb'
 
 class History_Scraper
     # def initialize
     # end
 
 	def site_scraper
-		
 		doc = Nokogiri::HTML(open('https://www.history.com/this-day-in-history'))
 	end
 		
      def get_events
-     	self.get_events.css(".day-articles")
+     	self.site_scraper.css(".day-articles")
      end
-		today = []
-		doc.css("div.day-articles").collect do |event|
-			year = event.css(".year").text
-			event_title = event.css(."title")
-			category = event.css(".category")
-			story = event.css(".article").text
-        today << {year: year}
-		end
-		binding.pry
-		today
+
+     def make_events
+     
+     	self.get_events.each do |e|
+		  event = Event.new
+		  event.year = e.css(".year").text
+		  event.title = e.css(".title").text
+		  event.category = e.css(".category").text
+		  event.story = e.css(".article").text
+		  binding.pry
+		end	
 	end
+
 
 end
 
-History_Scraper.site_scraper
+history = History_Scraper.new
+history.make_events
 #puts "is this working?"
