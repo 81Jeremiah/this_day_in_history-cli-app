@@ -19,7 +19,7 @@ class History_Scraper
      
      	self.get_events.each do |e|
 		  event = Event.new
-		  event.year = e.css(".year").text
+		  event.year = e.css(".year").text.split(" ")
 		  event.title = e.css(".title").text
 		  event.category = e.css(".category").text
 		  event.story = e.css(".article").text
