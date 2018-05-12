@@ -17,19 +17,28 @@ class History_Scraper
 
      def make_events
      
-     	self.get_events.each do |e|
+     	self.get_events.collect do |e|
 		  event = Event.new
-		  event.year = e.css(".year").text.split(" ")
+		  event.year = e.css(".year").text
 		  event.title = e.css(".title").text
-		  event.category = e.css(".category").text
-		  event.story = e.css(".article").text
-		  binding.pry
+		  event.category = e.css(".category")
+		  event.story = e.css(".article")
+		  #binding.pry
 		end	
 	end
-
-
+    
+    def show_events
+    	self.make_events
+       Event.all.collect do |event|
+       	if event.title
+       		puts "Title: #{event.title}"
+       		puts "Year: #{event.year}"
+       		puts "Category: #{event.category}"
+       	end
+       end	
+    end
 end
 
 history = History_Scraper.new
-history.make_events
+history.show_events
 #puts "is this working?"
