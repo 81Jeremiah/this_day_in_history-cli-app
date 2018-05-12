@@ -12,8 +12,8 @@ class History_Scraper
 		
 		today = []
 		doc.css("div.day-articles").each do |event|
-			event_title = event.css("div.title").text
-        today << {title: event_title}
+			year = event.css(".year").text
+        today << {year: year}
 		end
 		binding.pry
 		today
