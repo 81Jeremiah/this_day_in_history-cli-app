@@ -11,9 +11,9 @@ class ThisDayInHistory::CLI
      
      while input != "exit"
      puts "Welcome to the world of yesterday, today!"
-	   puts "Press 1 to list all"
-	   puts "Press 2 to see years"
-     puts "Press 3 to categories"
+	   puts "Type 1 to see the main story"
+	   puts "Type 2 to see a list by year"
+     puts "Type 3 to list categories"
      puts "Type 'exit' to be done for the day"
      input = gets.strip
 
