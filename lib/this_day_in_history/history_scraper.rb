@@ -19,11 +19,11 @@ class History_Scraper
      
      	self.get_events.collect do |e|
 		  event = Event.new
-		  event.year = e.css(".year").text
-		  event.title = e.css(".title").text
-		  event.category = e.css(".category")
-		  event.story = e.css(".article")
-		  #binding.pry
+		  event.year = e.css(".year").first.text
+		  event.title = e.css(".title").first.text
+		  event.category = e.css(".category").first.text
+		  event.story = e.css("p").first.text
+		  binding.pry
 		end	
 	end
     
