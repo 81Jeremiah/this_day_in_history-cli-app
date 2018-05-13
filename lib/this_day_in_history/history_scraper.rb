@@ -3,6 +3,7 @@ require 'pry'
 require 'nokogiri'
 
 
+
 class ThisDayInHistory::History_Scraper
     # def initialize
     # end
@@ -12,25 +13,29 @@ class ThisDayInHistory::History_Scraper
 	end
 		
      def get_events
-     	self.site_scraper.css(".day-articles")
+     	self.site_scraper.css(".day-article")
      end
 
      def make_events
-        events = []
+        
      	self.get_events.each do |e|
-          year = e.css(".year").text
-          events << {year: year}
      		#binding.pry
-		  # event = ThisDayInHistory::Event.new
-		  # event.year = e.css(".year").text #collect{|e| e.text.strip}
-		  # event.title = e.css(".title").text #collect{|e| e.text.strip}
-		  # event.category = e.css(".category").text #collect{|e| e.text.strip}
-		  # event.story = e.css("p").text #collect{|e| e.text.strip}
-		  # binding.pry
+		  event = ThisDayInHistory::Event.new
+		 event.year = e.css(".year").text #collect{|e| e.text.strip}
+		   event.title = e.css(".title").text #collect{|e| e.text.strip}
+		  event.category = e.css(".category").text #collect{|e| e.text.strip}
+		   event.story = e.css("p").text #collect{|e| e.text.strip}
+		   #binding.pry
 		end	
-		events
 		
-	end
+	end	
+	# 	self.get_events.each do |e|
+			
+	# 		e.each do| |
+	# 		ThisDayInHistory::Event(title, year, category, story)
+
+	# 		year = e.css(".year").text
+	# end
     
     def scrape_titles
         
@@ -38,6 +43,15 @@ class ThisDayInHistory::History_Scraper
         	@titles = e.css(".title").collect{|e| e.text.strip}
         end
         @titles
+       # binding.pry
+    end
+
+    def scrape_year
+        
+        self.get_events.each do |e|
+        	@years = e.css(".year").collect{|e| e.text.strip}
+        end
+        @years
        # binding.pry
     end
 
@@ -57,6 +71,5 @@ class ThisDayInHistory::History_Scraper
     end
 end
 
-#History_Scraper.new.show_events
+#ThisDayInHistory::History_Scraper.new.make_events
 
-#puts "is this working?"

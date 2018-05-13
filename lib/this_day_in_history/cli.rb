@@ -8,8 +8,14 @@ class ThisDayInHistory::CLI
 
    def welcome
      input = ""
+     #while input != "exit"
+
      puts "Today in History"
-     ThisDayInHistory::History_Scraper.new.scrape_titles.each.with_index(1) {|i,e| puts "#{e}. #{i}"}
+     
+     ThisDayInHistory::History_Scraper.new.show_events
+     #ThisDayInHistory::History_Scraper.new.scrape_titles.each.with_index(1) {|i,e| puts "#{e}. #{i}"}
+     puts "Choose which event to learn more about"
+    
     #  while input != "exit"
     #  puts "Welcome to the world of yesterday, today!"
 	   # puts "Type 1 to see the main story"
@@ -32,7 +38,7 @@ class ThisDayInHistory::CLI
     #       puts "American"
 
     #       #history.list_by_category
-    #   end
-
+    
+      #end
     end
 end
