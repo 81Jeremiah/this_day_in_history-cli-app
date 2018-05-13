@@ -21,10 +21,10 @@ class ThisDayInHistory::History_Scraper
      	self.get_events.each do |e|
      		#binding.pry
 		  event = ThisDayInHistory::Event.new
-		 event.year = e.css(".year").text #collect{|e| e.text.strip}
-		   event.title = e.css(".title").text #collect{|e| e.text.strip}
+		  event.year = e.css(".year").text #collect{|e| e.text.strip}
+		  event.title = e.css(".title").text #collect{|e| e.text.strip}
 		  event.category = e.css(".category").text #collect{|e| e.text.strip}
-		   event.story = e.css("p").text #collect{|e| e.text.strip}
+		  event.story = e.css("p").text #collect{|e| e.text.strip}
 		   #binding.pry
 		end	
 		

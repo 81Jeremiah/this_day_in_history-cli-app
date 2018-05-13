@@ -9,10 +9,13 @@ class ThisDayInHistory::CLI
    def welcome
      input = ""
      #while input != "exit"
-
-     puts "Today in History"
      
-     ThisDayInHistory::History_Scraper.new.show_events
+     puts "Today in History"
+     make_events
+     ThisDayInHistory::Event.list_by_title
+     #ThisDayInHistory::History_Scraper.new
+     #ThisDayInHistory::Event.new
+     #ThisDayInHistory::History_Scraper.all
      #ThisDayInHistory::History_Scraper.new.scrape_titles.each.with_index(1) {|i,e| puts "#{e}. #{i}"}
      puts "Choose which event to learn more about"
     
@@ -41,4 +44,10 @@ class ThisDayInHistory::CLI
     
       #end
     end
+
+   def make_events
+    ThisDayInHistory::History_Scraper.new.make_events
+   end
+
+
 end
