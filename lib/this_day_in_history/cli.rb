@@ -8,7 +8,8 @@ class ThisDayInHistory::CLI
 
    def welcome
      input = ""
-     ThisDayInHistory::History_Scraper.new.show_events
+     puts "Today in History"
+     ThisDayInHistory::History_Scraper.new.scrape_titles.each.with_index(1) {|i,e| puts "#{e}. #{i}"}
     #  while input != "exit"
     #  puts "Welcome to the world of yesterday, today!"
 	   # puts "Type 1 to see the main story"
