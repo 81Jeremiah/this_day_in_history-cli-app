@@ -24,11 +24,11 @@ class ThisDayInHistory::Event
   end
 
 
- def list_by_year
+ def self.list_by_year
    @@all.each.with_index(1){|event, i| puts "#{i}. #{event.year} "}
  end
 
- def list_by_category
+ def self.list_by_category
    @@all.each.with_index(1){|event, i| puts "#{i}. #{event.category} "}
  end
 

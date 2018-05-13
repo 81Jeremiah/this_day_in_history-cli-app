@@ -8,16 +8,30 @@ class ThisDayInHistory::CLI
 
    def welcome
      input = ""
-     #while input != "exit"
+     while input != "exit"
      
      puts "Today in History"
      make_events
+     puts "Type 'List' to see a full list"
+     puts "Type 'year' to see a list by year"
+     puts "Type 'categories' to see a list by category"
+     
+     input = gets.strip
+     case input
+      when "List"
      ThisDayInHistory::Event.list_by_title
+      when "year"
+        ThisDayInHistory::Event.list_by_year
+      when "categories"
+        ThisDayInHistory::Event.list_by_category
+      end
+    end
+
      #ThisDayInHistory::History_Scraper.new
      #ThisDayInHistory::Event.new
      #ThisDayInHistory::History_Scraper.all
      #ThisDayInHistory::History_Scraper.new.scrape_titles.each.with_index(1) {|i,e| puts "#{e}. #{i}"}
-     puts "Choose which event to learn more about"
+    # puts "Choose which event to learn more about"
     
     #  while input != "exit"
     #  puts "Welcome to the world of yesterday, today!"
