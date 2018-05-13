@@ -1,4 +1,4 @@
-class Event
+class ThisDayInHistory::Event
 	attr_accessor :title,:year, :category, :story
 
 	 @@all = []

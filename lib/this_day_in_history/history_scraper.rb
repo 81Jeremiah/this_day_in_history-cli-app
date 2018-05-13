@@ -1,9 +1,9 @@
 require 'open-uri'
 require 'pry'
 require 'nokogiri'
-require_relative './event.rb'
+#require_relative './event.rb'
 
-class History_Scraper
+class ThisDayInHistory::History_Scraper
     # def initialize
     # end
 
@@ -17,28 +17,30 @@ class History_Scraper
 
      def make_events
      
-     	self.get_events.collect do |e|
-		  event = Event.new
-		  event.year = e.css(".year").first.text
-		  event.title = e.css(".title").first.text
-		  event.category = e.css(".category").first.text
-		  event.story = e.css("p").first.text
-		  binding.pry
+     	self.get_events.each do |e|
+     		#binding.pry
+		  event = ThisDayInHistory::Event.new
+		  event.year = e.css(".year").collect{|e| e.text.strip}
+		  event.title = e.css(".title").collect{|e| e.text.strip}
+		  event.category = e.css(".category").collect{|e| e.text.strip}
+		  event.story = e.css("p").collect{|e| e.text.strip}
+		  #binding.pry
 		end	
 	end
     
     def show_events
     	self.make_events
-       Event.all.collect do |event|
+       ThisDayInHistory::Event.all.each do |event|
        	if event.title
        		puts "Title: #{event.title}"
        		puts "Year: #{event.year}"
        		puts "Category: #{event.category}"
+       		puts "Stories: #{event.story}"
        	end
        end	
     end
 end
 
-history = History_Scraper.new
-history.show_events
+#History_Scraper.new.show_events
+
 #puts "is this working?"
