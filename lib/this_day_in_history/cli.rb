@@ -8,7 +8,7 @@ class ThisDayInHistory::CLI
 
    def welcome
      input = ""
-     while input != "exit"
+     #while input != "exit"
      
      puts "Today in History"
      make_events
@@ -19,12 +19,13 @@ class ThisDayInHistory::CLI
      input = gets.strip
      case input
       when "List"
-     ThisDayInHistory::Event.list_by_title
+        list
       when "year"
         ThisDayInHistory::Event.list_by_year
       when "categories"
         ThisDayInHistory::Event.list_by_category
-      end
+
+      
     end
 
      #ThisDayInHistory::History_Scraper.new
@@ -62,6 +63,12 @@ class ThisDayInHistory::CLI
    def make_events
     ThisDayInHistory::History_Scraper.new.make_events
    end
-
+    
+    def list
+     ThisDayInHistory::Event.list_by_title
+       puts "Which item would you like to learn more about(select number)"
+        input = gets.strip.to_i
+        ThisDayInHistory::Event.find_by_number(input)
+    end
 
 end

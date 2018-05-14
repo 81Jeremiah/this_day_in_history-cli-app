@@ -32,6 +32,10 @@ class ThisDayInHistory::Event
    @@all.each.with_index(1){|event, i| puts "#{i}. #{event.category} "}
  end
 
+ def self.find_by_number(input)
+ 	puts "#{@@all[input - 1].story}"
+ end
+
 end
 
 
