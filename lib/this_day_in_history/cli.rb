@@ -3,15 +3,16 @@ class ThisDayInHistory::CLI
 
 	def call
 		welcome
+    
 	end
 
 
    def welcome
+    make_events
      input = ""
      #while input != "exit"
      
      puts "Today in History"
-     make_events
      puts "Type 'List' to see a full list"
      puts "Type 'year' to see a list by year"
      puts "Type 'categories' to see a list by category"
@@ -66,7 +67,7 @@ class ThisDayInHistory::CLI
     
     def list
      ThisDayInHistory::Event.list_by_title
-       puts "Which item would you like to learn more about(select number)"
+       puts "Which item would you like to learn more about(select a number)"
         input = gets.strip.to_i
         ThisDayInHistory::Event.find_by_number(input)
     end
