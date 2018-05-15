@@ -33,7 +33,7 @@ class ThisDayInHistory::Event
  end
 
  def self.find_by_number(input)
- 	puts "#{@@all[input - 1].story}"
+ 	puts "Title: #{@@all[input-1].title} /n Year: #{@@all[input-1].year} /n Category: #{@@all[input-1].year} #{@@all[input - 1].story}"
  end
 
 end
