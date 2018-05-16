@@ -8,6 +8,7 @@ class ThisDayInHistory::CLI
 
 
    def welcome
+    ThisDayInHistory::Event.reset_all
     make_events
      input = ""
      #while input != "exit"

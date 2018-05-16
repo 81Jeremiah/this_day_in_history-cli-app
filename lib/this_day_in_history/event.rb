@@ -5,9 +5,10 @@ class ThisDayInHistory::Event
 	 @@all = []
 
 	def initialize(title = nil, year =nil, category =nil, story = nil)
-		#if @@all.all?{|e| e.title != self.title}
+		#if @@all.none?{|e| e.title == self.title}
+			#binding.pry
 		@@all << self
-	    end
+	    #end
 		#binding.pry
     end
 
@@ -15,6 +16,9 @@ class ThisDayInHistory::Event
     @@all
 
   end
+
+  
+
 
   def self.reset_all
     @@all.clear
