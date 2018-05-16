@@ -2,5 +2,5 @@
 
 require_relative '../lib/this_day_in_history'
 
-ThisDayInHistory::Cli.new.call
+ThisDayInHistory::CLI.new.call
 
