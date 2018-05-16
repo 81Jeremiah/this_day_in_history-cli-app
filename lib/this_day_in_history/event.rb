@@ -5,8 +5,9 @@ class ThisDayInHistory::Event
 	 @@all = []
 
 	def initialize(title = nil, year =nil, category =nil, story = nil)
-		
+		#if @@all.all?{|e| e.title != self.title}
 		@@all << self
+	    end
 		#binding.pry
     end
 
@@ -33,7 +34,10 @@ class ThisDayInHistory::Event
  end
 
  def self.find_by_number(input)
- 	puts "Title: #{@@all[input-1].title} /n Year: #{@@all[input-1].year} /n Category: #{@@all[input-1].year} #{@@all[input - 1].story}"
+ 	puts "Title: #{@@all[input-1].title}"
+ 	puts "Year: #{@@all[input-1].year}" 
+ 	puts "Category: #{@@all[input-1].category}" 
+ 	puts "#{@@all[input - 1].story}"
  end
 
 end
