@@ -32,7 +32,7 @@ class ThisDayInHistory::CLI
     input = ""
     
     puts "Finished reading for today? Type 'exit'"
-    puts "To see the list again press any key"
+    puts "To see the list again press 'enter'"
     input = gets.strip.downcase
       if input == "exit"
         exit
