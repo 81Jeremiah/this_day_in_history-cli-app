@@ -1,5 +1,5 @@
 class ThisDayInHistory::Event
-	attr_accessor :title,:year, :category, :story, :link
+	attr_accessor :title,:year, :category, :story, :link ,:full_story
 
     
 	 @@all = []
