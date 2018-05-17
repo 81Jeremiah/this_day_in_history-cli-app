@@ -28,7 +28,7 @@ class ThisDayInHistory::History_Scraper
             new_page = Nokogiri::HTML(open("https://www.history.com#{event.link}"))
 
           event.full_story = new_page.css(".article").text
-		  binding.pry
+		  #binding.pry
 		  end   
 		end	
 		end
