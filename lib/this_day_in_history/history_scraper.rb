@@ -24,11 +24,11 @@ class ThisDayInHistory::History_Scraper
 		  event.story = e.css("p").text 
 		  if event.category != "Lead Story"
             event.link = e.css(".title a").attribute("href").value
-            #binding.pry
+            
             new_page = Nokogiri::HTML(open("https://www.history.com#{event.link}"))
 
-          event.full_story = new_page.css(".article").text
-		  #binding.pry
+          event.full_story = new_page.css(".article").first.text.strip
+		  
 		  end   
 		end	
 		end

@@ -10,25 +10,26 @@ class ThisDayInHistory::CLI
    def welcome
     ThisDayInHistory::Event.reset_all
     make_events
-     input = ""
+     #input = ""
      #while input != "exit"
      
-     puts "Today in History"
-     puts "Type 'List' to see a full list"
-     puts "Type 'year' to see a list by year"
-     puts "Type 'categories' to see a list by category"
+     puts "***********Today in History***********"
+     list
+     # puts "Type 'List' to see a full list"
+     # puts "Type 'year' to see a list by year"
+     # puts "Type 'categories' to see a list by category"
      
-     input = gets.strip
-     case input
-      when "List"
-        list
-      when "year"
-        ThisDayInHistory::Event.list_by_year
-      when "categories"
-        ThisDayInHistory::Event.list_by_category
+    #  input = gets.strip
+    #  case input
+    #   when "List"
+    #     list
+    #   when "year"
+    #     ThisDayInHistory::Event.list_by_year
+    #   when "categories"
+    #     ThisDayInHistory::Event.list_by_category
 
       
-    end
+    # end
 
      #ThisDayInHistory::History_Scraper.new
      #ThisDayInHistory::Event.new
@@ -68,9 +69,34 @@ class ThisDayInHistory::CLI
     
     def list
      ThisDayInHistory::Event.list_by_title
-       puts "Which item would you like to learn more about(select a number)"
+       puts "Which event would you like to learn more about?(select a number)"
         input = gets.strip.to_i
+        if input <= ThisDayInHistory::Event.all.length && input > 0
         ThisDayInHistory::Event.find_by_number(input)
+        more_options
+        else
+        puts "Please choose a number on the list"
+        list
+      end
+        # puts "Finished reading for today? Type 'exit'"
+        # Puts
+        # unless input == "exit"
+        #   list
     end
 
+   def more_options
+      input = ""
+    puts "Finished reading for today? Type 'exit'"
+    puts "To see the list again press any key"
+     input = gets.strip.downcase
+        if input == "exit"
+        exit
+        else
+          list
+      end
+   end
+
+   def exit
+    puts "Goodbye. Come back tomorrow for more great events in history!"
+  end
 end
