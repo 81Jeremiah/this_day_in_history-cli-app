@@ -1,15 +1,12 @@
 class ThisDayInHistory::Event
-	attr_accessor :title,:year, :category, :story
+	attr_accessor :title,:year, :category, :story, :link
 
     
 	 @@all = []
 
 	def initialize(title = nil, year =nil, category =nil, story = nil)
-		#if @@all.none?{|e| e.title == self.title}
-			#binding.pry
 		@@all << self
-	    #end
-		#binding.pry
+	    
     end
 
   def self.all
