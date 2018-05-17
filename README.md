@@ -1,4 +1,4 @@
-# ThisDayInHistory
+# This Day In History
 
 Welcome to Today in History! This great little gem is a fun way to add an interesting fact to your day. Learn something new everyday, so be sure to run it at least once a day!
 
