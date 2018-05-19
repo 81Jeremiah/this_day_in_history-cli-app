@@ -17,6 +17,7 @@ class ThisDayInHistory::CLI
     
   def list
     ThisDayInHistory::Event.list_by_title
+    puts "***************************************"
     puts "Which event would you like to learn more about?(select a number)"
     input = gets.strip.to_i
       if input <= ThisDayInHistory::Event.all.length && input > 0
@@ -30,7 +31,7 @@ class ThisDayInHistory::CLI
 
    def more_options
     input = ""
-    
+    puts "***************************************"
     puts "Finished reading for today? Type 'exit'"
     puts "To see the list again press 'enter'"
     input = gets.strip.downcase
