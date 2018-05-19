@@ -29,7 +29,7 @@ class ThisDayInHistory::CLI
       end
   end
 
-   def more_options
+  def more_options
     input = ""
     puts "***************************************"
     puts "Finished reading for today? Type 'exit'"
@@ -40,9 +40,9 @@ class ThisDayInHistory::CLI
       else
         list
       end
-   end
+  end
 
-   def exit
+  def exit
     puts "Goodbye. Come back tomorrow for more great events in history!"
   end
 end

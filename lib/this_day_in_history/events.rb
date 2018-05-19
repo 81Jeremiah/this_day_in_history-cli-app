@@ -23,10 +23,12 @@ class ThisDayInHistory::Events
  	puts "Title: #{@@all[input-1].title}"
  	puts "Year: #{@@all[input-1].year}" 
  	puts "Category: #{@@all[input-1].category}" 
+ 	  
  	  if @@all[input-1].category == "Lead Story"
  	    puts "#{@@all[input - 1].story}"
-      else puts "#{@@all[input - 1].full_story}"
-    end
+      else 
+      	puts "#{@@all[input - 1].full_story}"
+      end
   end 
 end
 

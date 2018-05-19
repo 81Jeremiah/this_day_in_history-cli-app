@@ -8,7 +8,7 @@ class ThisDayInHistory::History_Scraper
      	self.site_scraper.css(".day-article")
      end
 
-     def make_events    
+    def make_events    
      	self.get_events.each do |e|
      	  if ThisDayInHistory::Events.all.none?{|event| event.title == e.css(".title").text}
 		    event = ThisDayInHistory::Events.new
@@ -23,7 +23,7 @@ class ThisDayInHistory::History_Scraper
 		      end   
 		   end	
 		end
-     end
+    end
 end
 
 
