@@ -1,11 +1,11 @@
 class ThisDayInHistory::Event
-	attr_accessor :title,:year, :category, :story, :link ,:full_story
+  attr_accessor :title,:year, :category, :story, :link ,:full_story
 
-	@@all = []
+  @@all = []
 
-	def initialize
-	  @@all << self    
-    end
+  def initialize
+	@@all << self    
+  end
 
   def self.all
     @@all
@@ -26,7 +26,7 @@ class ThisDayInHistory::Event
  	  if @@all[input-1].category == "Lead Story"
  	    puts "#{@@all[input - 1].story}"
       else puts "#{@@all[input - 1].full_story}"
-      end
+    end
   end 
 end
 
