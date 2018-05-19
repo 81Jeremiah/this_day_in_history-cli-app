@@ -5,7 +5,7 @@ class ThisDayInHistory::CLI
 	end
 
   def welcome
-    ThisDayInHistory::Event.reset_all
+    ThisDayInHistory::Events.reset_all
     make_events
     puts "***********Today in History***********"
     list
@@ -16,12 +16,12 @@ class ThisDayInHistory::CLI
   end
     
   def list
-    ThisDayInHistory::Event.list_by_title
+    ThisDayInHistory::Events.list_by_title
     puts "***************************************"
     puts "Which event would you like to learn more about?(select a number)"
     input = gets.strip.to_i
-      if input <= ThisDayInHistory::Event.all.length && input > 0
-        ThisDayInHistory::Event.find_by_number(input)
+      if input <= ThisDayInHistory::Events.all.length && input > 0
+        ThisDayInHistory::Events.find_by_number(input)
         more_options
       else
         puts "Please choose a number on the list"

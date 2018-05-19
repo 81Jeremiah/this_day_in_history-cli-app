@@ -11,4 +11,4 @@ end
 require_relative "./this_day_in_history/version"
 require_relative "./this_day_in_history/cli"
 require_relative "./this_day_in_history/history_scraper"
-require_relative "./this_day_in_history/event"
+require_relative "./this_day_in_history/events"

@@ -10,8 +10,8 @@ class ThisDayInHistory::History_Scraper
 
      def make_events    
      	self.get_events.each do |e|
-     	  if ThisDayInHistory::Event.all.none?{|event| event.title == e.css(".title").text}
-		    event = ThisDayInHistory::Event.new
+     	  if ThisDayInHistory::Events.all.none?{|event| event.title == e.css(".title").text}
+		    event = ThisDayInHistory::Events.new
 		    event.year = e.css(".year").text 
 		    event.title = e.css(".title").text 
 		    event.category = e.css(".category").text 
