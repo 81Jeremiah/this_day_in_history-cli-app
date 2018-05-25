@@ -3,7 +3,7 @@ class ThisDayInHistory::CLI
   def call
     welcome  
 	end
-
+  
   def welcome
     ThisDayInHistory::Events.reset_all
     make_events
