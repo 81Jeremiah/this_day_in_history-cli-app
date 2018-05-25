@@ -1,7 +1,7 @@
 class ThisDayInHistory::CLI
 
-	def call
-		welcome  
+  def call
+    welcome  
 	end
 
   def welcome
