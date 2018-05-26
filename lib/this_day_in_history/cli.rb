@@ -20,14 +20,29 @@ class ThisDayInHistory::CLI
     puts "***************************************"
     puts "Which event would you like to learn more about?(select a number)"
     input = gets.strip.to_i
-      if input <= ThisDayInHistory::Events.all.length && input > 0
-        ThisDayInHistory::Events.find_by_number(input)
-        more_options
-      else
-        puts "Please choose a number on the list"
-        list
-      end
+    if input <= ThisDayInHistory::Events.all.length && input > 0
+      find_by_number(input)
+      more_options
+    else
+      puts "Please choose a number on the list"
+      list
+    end
   end
+
+ def find_by_number(input)
+  event = ThisDayInHistory::Events.all[input-1]
+  puts "Title: #{event.title}"
+  puts "Year: #{event.year}" 
+  puts "Category: #{event.category}" 
+    
+  if event.category == "Lead Story"
+    puts "#{event.story}"
+  else 
+    puts "#{event.full_story}"
+    end
+  end 
+
+
 
   def more_options
     input = ""
@@ -35,11 +50,11 @@ class ThisDayInHistory::CLI
     puts "Finished reading for today? Type 'exit'"
     puts "To see the list again press 'enter'"
     input = gets.strip.downcase
-      if input == "exit"
-        exit
-      else
-        list
-      end
+    if input == "exit"
+      exit
+    else
+      list
+    end
   end
 
   def exit
